@@ -1,6 +1,5 @@
 <script>
-    console.log('Hello world!');
-    let count = $state(0);
+    let {initialCount : count = $bindable(0) } = $props();
     let doubled = $derived(count * 2);
 </script>
 
@@ -11,5 +10,5 @@
 </button>
 
 <span>
-    doubled: {doubled}
+    doubled is {doubled}
 </span>
