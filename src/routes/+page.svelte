@@ -1,4 +1,5 @@
 <script>
+  import Canvas from '$lib/components/Canvas.svelte';
   import ClicksCounter from '$lib/components/ClicksCounter.svelte';
   let count = $state(5);
 
@@ -11,6 +12,7 @@
 <ClicksCounter bind:initialCount = {count} />
 <p> count from parent is {count} </p>
 
+<Canvas />
 <style>
   h1 {
    color: deepskyblue;
