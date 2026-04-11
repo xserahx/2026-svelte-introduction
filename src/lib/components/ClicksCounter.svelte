@@ -1,11 +1,22 @@
 <script>
-    let {initialCount : count = $bindable(0) } = $props();
+    let {
+        initialCount : count = $bindable(0),
+        willIncrement = () => {},
+        didIncrement = () => {}
+    } = $props();
+
     let doubled = $derived(count * 2);
+
+    const increment = () => {
+        willIncrement(count);
+        count++;
+        didIncrement(count);
+    }
 </script>
 
 <h3>Clicks Counter</h3>
 
-<button onclick={() => count++}>
+<button onclick={increment}>
     clicks: {count}
 </button>
 

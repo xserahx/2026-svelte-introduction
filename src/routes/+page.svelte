@@ -1,15 +1,21 @@
 <script>
   import Canvas from '$lib/components/Canvas.svelte';
   import ClicksCounter from '$lib/components/ClicksCounter.svelte';
+  import TodoList from '$lib/components/TodoList.svelte';  
+
   let count = $state(5);
 
-  $inspect(count);
+  $inspect("Count is:", count );
 </script>
 
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
 
-<ClicksCounter bind:initialCount = {count} />
+<ClicksCounter 
+  bind:initialCount = {count} 
+  willIncrement={(count) => console.log("Count was:", count)}
+  didIncrement={(count) => console.log("Count has become:", count)}
+  />
 
 {#if count > 10 && count < 20}
   <p> count from parent is {count} </p>
@@ -20,6 +26,8 @@
 {/if} 
 
 <Canvas />
+<TodoList />
+
 <style>
   h1 {
    color: deepskyblue;
