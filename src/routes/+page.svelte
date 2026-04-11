@@ -10,7 +10,14 @@
 <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
 
 <ClicksCounter bind:initialCount = {count} />
-<p> count from parent is {count} </p>
+
+{#if count > 10 && count < 20}
+  <p> count from parent is {count} </p>
+{:else if count > 30}
+  <p> wow! That's a lot of clicks!</p>
+{:else}
+  <p> count is not in range </p>
+{/if} 
 
 <Canvas />
 <style>
