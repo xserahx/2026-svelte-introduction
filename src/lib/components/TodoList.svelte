@@ -1,14 +1,14 @@
 <script>
     let todos = $state([
-        { title: 'Assignment 1', done: false },
-        { title: 'Assignment 2', done: false },
-        { title: 'Assignment 3', done: false }
+        { title: "Assignment 1", done: false },
+        { title: "<i>Assignment 2</i>", done: false },
+        { title: "Assignment 3", done: false }
     ]);
 
     let groceries = $state([
-        { title: 'Milk', done: false },
-        { title: 'Bread', done: false },
-        { title: 'Eggs', done: false }
+        { title: "Milk", done: false },
+        { title: "<b>Bread</b>", done: false },
+        { title: "Eggs", done: false }
     ]);
 </script>
 
@@ -36,3 +36,10 @@
         {@render todoItem(grocery)}
     {/each}
 </ul>
+
+<style>
+    label :global {
+       i { color: green; }
+       b { color: blue;  }
+    }
+</style>
